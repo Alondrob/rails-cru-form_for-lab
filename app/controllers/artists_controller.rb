@@ -22,10 +22,15 @@ class ArtistsController < ApplicationController
   end
 
   def edit
+    # byebug
+    @artist = Artist.find(params[:id])
   end
 
   def update
-  end
+	  @artist = Artist.find(params[:id])
+	  @artist.update(artist_params)
+	  redirect_to artist_path(@artist)
+	end
 
   def destroy
   end
